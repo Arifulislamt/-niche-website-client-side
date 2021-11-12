@@ -9,6 +9,7 @@ const AllCars = () => {
         fetch('http://localhost:5000/allProducts')
             .then(res => res.json())
             .then(data => setProducts(data));
+            
     }, []);
     return (
         <div>

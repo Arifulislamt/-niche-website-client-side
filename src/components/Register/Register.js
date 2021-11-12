@@ -4,20 +4,19 @@ import Header from '../Navigation/Header';
 import { useForm } from "react-hook-form";
 import './Register.css';
 import img from '../../images/image.png';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Alert, Button, Spinner } from 'react-bootstrap';
 import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const { register, handleSubmit, } = useForm(); //watch, errors
     const { user, registerUser, isLoading, authError } = useAuth();
-    const location = useLocation();
     const history = useHistory();
 
 
 
     const onSubmit = (data,e)=> {
-        registerUser(data.email, data.password, location, history);
+        registerUser(data.email, data.password, data.name, history);
         // alert('Register Successfully')
         e.preventDefault();
         console.log(data);

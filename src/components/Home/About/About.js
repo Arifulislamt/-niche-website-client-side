@@ -5,7 +5,7 @@ const About = () => {
     return (
         <div className="mt-5">
             <div className="container">
-                <h1 className="fw-bold text-center my-5">WHO <span className="text-warning"> WE ARE</span></h1>
+                <h1 style={{marginTop: "200px", marginBottom: "60px"}} className="fw-bold text-center ">WHO <span className="text-warning"> WE ARE</span></h1>
                 <div className="row">
                     <div className="col-md-6">
                     <img style={{width: "100%"}} className="m-1" src={images} alt=""/>

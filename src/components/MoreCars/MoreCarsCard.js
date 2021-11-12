@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const MoreCarsCard = (props) => {
-    const {name, image, description,price } = props.pd;
+    const {_id,name, image, description,price } = props.pd;
     return (
         <div>
         <div className="col">
@@ -14,7 +15,9 @@ const MoreCarsCard = (props) => {
                 <p className="card-text">{description}</p>
                 </div>
                 <div className="card-footer">
+                <Link to={`/products/${_id}`}>
                 <Button className="w-100 btn-secondary fw-bold">More Details</Button>
+                </Link>
                 </div>
             </div>
         </div>
@@ -23,3 +26,5 @@ const MoreCarsCard = (props) => {
 };
 
 export default MoreCarsCard;
+
+ 

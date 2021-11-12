@@ -2,9 +2,10 @@ import React from 'react';
 import './AddProducts.css';
 import { useForm } from "react-hook-form";
 
+
 const AddProducts = () => {
 
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm();
+    const { register, handleSubmit, formState: { errors }, } = useForm();
 
 
     const onSubmit = (data,e) => {
@@ -22,11 +23,12 @@ const AddProducts = () => {
     return (
         <div>
             <div>
-                <h1 className="mt-5 text-center text-secondary">Please Add Products</h1>
-                <div className=" w-50 m-auto mt-5">
+                <h1 className="mt-5 text-center text-warning fw-bold ">Please Add Products</h1>
+                <div className=" w-50 m-auto mt-5 shadow-lg p-5">
                     <div className=" ">
                         <div className="">
                             <form onSubmit={handleSubmit(onSubmit)}>
+                            <h1 className="mt-5 text-center text-secondary ">Add Products</h1>
                                 <input
                                     {...register("name")}
                                     placeholder="Name"
@@ -67,4 +69,4 @@ const AddProducts = () => {
     );
 };
 
-export default AddProducts; <h1>Add Products</h1>
+export default AddProducts;

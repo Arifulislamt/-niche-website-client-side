@@ -18,8 +18,9 @@ const Header = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link className="fw-bold text-dark" as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link className="fw-bold text-dark" as={Link} to="/moreCars">More Cars</Nav.Link>
-                        <Nav.Link className="fw-bold text-dark" as={Link} to="/orderNaw">Order Naw</Nav.Link>
-                        <Nav.Link className="fw-bold text-dark" as={Link} to="/dashboard">Dashboard</Nav.Link>
+                        {/* <Nav.Link className="fw-bold text-dark" as={Link} to="/orderNaw">Order Naw</Nav.Link> */}
+                        {user?.email &&
+                            <Nav.Link className="fw-bold text-dark" as={Link} to="/dashboard">Dashboard</Nav.Link>}
                         <Nav.Link className="fw-bold text-dark" as={Link} to="/register">Register</Nav.Link>
                        {
                            user?.email?
@@ -29,7 +30,7 @@ const Header = () => {
                            
                        }
                         <Navbar.Text>
-                            <span className="text-dark fw-bold">Signed in as: </span> <a href="#login" className="name">{user?.email}</a>
+                            <span className="text-dark fw-bold ms-3">Signed in as: </span> <a href="#login" className="name text-warning"> {user?.displayName}</a>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

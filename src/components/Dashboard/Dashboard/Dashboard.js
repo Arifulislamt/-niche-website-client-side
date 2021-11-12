@@ -5,7 +5,6 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 
 import './Dashboard.css';
-// import MyBookings from '../../MyBookings/MyBookings';
 import Review from '../../Review/Review';
 import MakeAdmin from '../../MakeAdmin/MakeAdmin';
 import AddProducts from '../../AddProducts/AddProducts';
@@ -13,9 +12,12 @@ import ManageOrders from '../../ManageOrders/ManageOrders';
 import { Button} from 'react-bootstrap';
 import Payment from '../../Payment/Payment';
 import MyOrders from '../../MyOrders/MyOrders';
+import useAuth from '../../../Hooks/useAuth';
 
 const Dashboard = () => {
+  const {logout} = useAuth();
     let { path, url } = useRouteMatch();
+
     return (
         <div>
             <Header></Header>
@@ -54,7 +56,7 @@ const Dashboard = () => {
                 <Link style={{textDecoration: 'none'}} to={`${url}/manageOrders`}>
                   <li className="dashboard-menu">Manage Orders</li>
                 </Link>
-                <Button className="m-4 btn-secondary">LogOut</Button>
+                <Button onClick={logout} className="m-4 btn-secondary">LogOut</Button>
               </div>
             </div>
           </div>
