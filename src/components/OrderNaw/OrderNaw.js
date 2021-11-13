@@ -90,7 +90,7 @@ const OrderNaw = () => {
                                             <input
                                                 {...register("order", { required: true })}
                                                 placeholder="Order product"
-                                                value={product?.name}
+                                                defaultValue={product?.name}
                                                 className="input-field cost py-2 m-2"
                                             />
                                             <br />

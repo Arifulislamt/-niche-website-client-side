@@ -4,7 +4,7 @@ const ReviewsCard = (props) => {
     const {email,image,name,description} = props.review;
     return (
         <div className="col">
-        <div className="card h-100">
+        <div className="card h-100 shadow-lg">
           <img src={image} className="card-img-top" alt="..."/>
           <div className="card-body">
             <h4 className="card-title fw-bold"><span style={{color: "tomato"}}>{name}</span></h4>

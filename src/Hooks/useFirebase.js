@@ -15,7 +15,8 @@ const useFirebase = () => {
     const registerUser = (email, password,name, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password,)
-            .then((userCredential) => {
+            .then((result) => {
+                handelUserInfoRegister(result.user.email);
                 setAuthError('');
                 const newUser = {email, displayName: name};
                 setUser(newUser);
@@ -32,6 +33,17 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+
+    // user add to database 
+    const handelUserInfoRegister = (email) => {
+        fetch('http://localhost:5000/addUserInfo', {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({email})
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    };
 
     //user login
     const loginUser = (email, password, location, history) => {

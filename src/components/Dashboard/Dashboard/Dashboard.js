@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../Footer/Footer';
 import Header from '../../Navigation/Header';
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
@@ -15,8 +15,23 @@ import MyOrders from '../../MyOrders/MyOrders';
 import useAuth from '../../../Hooks/useAuth';
 
 const Dashboard = () => {
-  const {logout} = useAuth();
+    const {user,logout} = useAuth();
     let { path, url } = useRouteMatch();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(()=> {
+      fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data[0]?.role === "admin"){
+          setIsAdmin(true);
+        }
+        else{
+          setIsAdmin(false);
+        }
+      });
+    },[user?.email]);
+    console.log(isAdmin);
 
     return (
         <div>
@@ -45,17 +60,18 @@ const Dashboard = () => {
               <div className="admin-dashboard">
                 <li className="dashboard-menu mt-2">Orders list</li>
 
-                {/* {isAdmi && ( */}
-                  <Link  style={{textDecoration: 'none'}} to={`${url}/addProducts`}>
+                {isAdmin &&(
+                 <div>
+                    <Link  style={{textDecoration: 'none'}} to={`${url}/addProducts`}>
                     <li className="dashboard-menu">Add Products</li>
                   </Link>
-                {/* )} */}
                 <Link style={{textDecoration: 'none'}} to={`${url}/makeAdmin`}>
                   <li className="dashboard-menu">Make Admin</li>
                 </Link>
                 <Link style={{textDecoration: 'none'}} to={`${url}/manageOrders`}>
                   <li className="dashboard-menu">Manage Orders</li>
                 </Link>
+                 </div>)} 
                 <Button onClick={logout} className="m-4 btn-secondary">LogOut</Button>
               </div>
             </div>

@@ -7,7 +7,7 @@ const ProductsCard = (props) => {
     return (
         <div>
             <div className="col">
-                <div className="card h-100">
+                <div className="card h-100 shadow-lg">
                     <img src={image} className="card-img-top" alt="..."/>
                     <div className="card-body">
                     <h5 className="card-title fw-bold">{name}</h5>
