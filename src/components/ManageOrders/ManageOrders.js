@@ -7,13 +7,13 @@ const ManageOrders = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://gentle-inlet-34373.herokuapp.com/allOrders")
       .then(res => res.json())
       .then(data => setOrder(data))
   }, [control]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrders/${id}`, {
+    fetch(`https://gentle-inlet-34373.herokuapp.com/deleteOrders/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" }
     })

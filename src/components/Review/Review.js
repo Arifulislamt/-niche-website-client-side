@@ -9,7 +9,7 @@ const Review = () => {
 
 
     const onSubmit = (data,e) => {
-        fetch('http://localhost:5000/addReview',{
+        fetch('https://gentle-inlet-34373.herokuapp.com/addReview',{
             method: "POST",
             headers: {"content-type": "application/json"},
             body:JSON.stringify(data)

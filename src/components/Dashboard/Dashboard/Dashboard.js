@@ -21,7 +21,7 @@ const Dashboard = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(()=> {
-      fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      fetch(`https://gentle-inlet-34373.herokuapp.com/checkAdmin/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         if(data[0]?.role === "admin"){

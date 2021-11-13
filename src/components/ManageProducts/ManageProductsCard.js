@@ -6,7 +6,7 @@ const ManageProductsCard = (props) => {
     const {_id,name, image, description,price } = props.pd;
 
     const handleDeletes = (id) => {
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://gentle-inlet-34373.herokuapp.com/deleteProduct/${id}`, {
             method: "DELETE",
             headers: { "content-type": "application/json" }
           })

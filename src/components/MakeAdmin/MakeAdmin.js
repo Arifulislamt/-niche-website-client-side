@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const { user } = useAuth();
 
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://gentle-inlet-34373.herokuapp.com/makeAdmin', {
             method: "PUT",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data)

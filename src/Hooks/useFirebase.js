@@ -36,7 +36,7 @@ const useFirebase = () => {
 
     // user add to database 
     const handelUserInfoRegister = (email) => {
-        fetch('http://localhost:5000/addUserInfo', {
+        fetch('https://gentle-inlet-34373.herokuapp.com/addUserInfo', {
             method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify({email})

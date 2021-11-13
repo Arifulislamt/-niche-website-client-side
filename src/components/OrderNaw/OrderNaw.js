@@ -13,13 +13,13 @@ const OrderNaw = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleProducts/${productsId}`)
+        fetch(`https://gentle-inlet-34373.herokuapp.com/singleProducts/${productsId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
     const onSubmit = (data, e) => {
-        fetch('http://localhost:5000/addOrders', {
+        fetch('https://gentle-inlet-34373.herokuapp.com/addOrders', {
             method: "POST",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data)

@@ -10,13 +10,13 @@ const MyOrders = () => {
 
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`https://gentle-inlet-34373.herokuapp.com/myOrder/${user?.email}`)
        .then(res => res.json())
        .then(data => setOrders(data));
     },[controls]);
 
     const handleDeletes = (id) => {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://gentle-inlet-34373.herokuapp.com/deleteOrder/${id}`, {
             method: "DELETE",
             headers: { "content-type": "application/json" }
           })

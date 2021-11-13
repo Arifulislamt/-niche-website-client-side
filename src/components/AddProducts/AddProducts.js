@@ -10,7 +10,7 @@ const AddProducts = () => {
 
     const onSubmit = (data,e) => {
 
-        fetch('http://localhost:5000/addProducts',{
+        fetch('https://gentle-inlet-34373.herokuapp.com/addProducts',{
             method: "POST",
             headers: {"content-type": "application/json"},
             body:JSON.stringify(data)
