@@ -13,6 +13,7 @@ import { Button} from 'react-bootstrap';
 import Payment from '../../Payment/Payment';
 import MyOrders from '../../MyOrders/MyOrders';
 import useAuth from '../../../Hooks/useAuth';
+import ManageProducts from '../../ManageProducts/ManageProducts';
 
 const Dashboard = () => {
     const {user,logout} = useAuth();
@@ -41,7 +42,7 @@ const Dashboard = () => {
         <div className="row">
           <div className="col-md-3 ">
             <div className="dashboard">
-              <h5>Dashboard</h5>
+              <h5 className="text-center fw-bold text-warning pt-5">Dashboard</h5>
               <Link style={{textDecoration: 'none'}} to={`${url}`}>
                 <li className="dashboard-menu mt-5">Book</li>
               </Link>
@@ -58,8 +59,6 @@ const Dashboard = () => {
                 <li className="dashboard-menu mt-2">Payment</li>
               </Link>
               <div className="admin-dashboard">
-                <li className="dashboard-menu mt-2">Orders list</li>
-
                 {isAdmin &&(
                  <div>
                     <Link  style={{textDecoration: 'none'}} to={`${url}/addProducts`}>
@@ -70,6 +69,9 @@ const Dashboard = () => {
                 </Link>
                 <Link style={{textDecoration: 'none'}} to={`${url}/manageOrders`}>
                   <li className="dashboard-menu">Manage Orders</li>
+                </Link>
+                <Link style={{textDecoration: 'none'}} to={`${url}/manageProducts`}>
+                  <li className="dashboard-menu">Manage Products</li>
                 </Link>
                  </div>)} 
                 <Button onClick={logout} className="m-4 btn-secondary">LogOut</Button>
@@ -98,6 +100,9 @@ const Dashboard = () => {
               </Route>
               <Route exact path={`${path}/manageOrders`}>
                 <ManageOrders></ManageOrders>
+              </Route>
+              <Route exact path={`${path}/manageProducts`}>
+                <ManageProducts></ManageProducts>
               </Route>
             </Switch>
           </div>
